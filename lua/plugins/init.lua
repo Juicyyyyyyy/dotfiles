@@ -1,4 +1,15 @@
 return {
+
+ -- Dashboard configuration
+  {
+  'goolord/alpha-nvim',
+  dependencies = { 'nvim-tree/nvim-web-devicons' },  -- For file icons
+  config = function()
+    require('configs.dashboard')
+  end,
+  },
+
+  
   -- **Conform.nvim**: Format code on save
   {
     "stevearc/conform.nvim",
@@ -141,6 +152,14 @@ return {
       require'nvim-web-devicons'.setup { default = true; }
     end,
   },
+  
+  {
+  "ahmedkhalf/project.nvim",
+  config = function()
+    require("project_nvim").setup {}
+  end,
+  },
+
   
   -- **Themes**: Import themes from themes.lua
   unpack(require("themes")),

@@ -28,3 +28,9 @@ end)
 
 -- Set default theme
 vim.cmd("colorscheme kanagawa")
+
+vim.cmd([[
+  highlight DashboardHeader guifg=#7E9CD8 ctermfg=75
+  highlight DashboardButtons guifg=#A3D4D5 ctermfg=152
+  highlight DashboardFooterBold guifg=#ff9e64 gui=bold
+]])
