@@ -124,6 +124,16 @@ return {
     end,
   },
   
+  -- Bufferline plugin for tabbar
+{
+  'akinsho/bufferline.nvim',
+  dependencies = 'nvim-tree/nvim-web-devicons',
+  config = function()
+    require('configs.bufferline')
+  end,
+},
+
+  
   -- **nvim-web-devicons**: Icons for files and more
   {
     "nvim-tree/nvim-web-devicons",
@@ -131,6 +141,7 @@ return {
       require'nvim-web-devicons'.setup { default = true; }
     end,
   },
+  
   -- **Themes**: Import themes from themes.lua
   unpack(require("themes")),
 }
