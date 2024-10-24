@@ -26,3 +26,5 @@ vim.schedule(function()
   require("mappings")
 end)
 
+-- Set default theme
+vim.cmd("colorscheme kanagawa")

@@ -131,14 +131,6 @@ return {
       require'nvim-web-devicons'.setup { default = true; }
     end,
   },
-
-  -- **mini.icons**: Minimalist icons for UI
-  {
-    "echasnovski/mini.nvim",
-    branch = 'stable',
-    config = function()
-      require('mini.icons').setup({})
-    end,
-  },
+  -- **Themes**: Import themes from themes.lua
+  unpack(require("themes")),
 }
-
