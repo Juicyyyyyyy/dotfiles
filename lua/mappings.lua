@@ -98,3 +98,30 @@ end, { desc = "whichkey query lookup" })
 -- bufferline
 vim.api.nvim_set_keymap("n", "<Tab>", [[<Cmd>BufferLineCycleNext<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<S-Tab>", [[<Cmd>BufferLineCyclePrev<CR>]], { noremap = true, silent = true })
+
+-- refactoring
+-- Refactor selected code into a new function within the same file
+vim.keymap.set("x", "<leader>re", ":Refactor extract ")
+
+-- Refactor selected code into a new function in a separate file
+vim.keymap.set("x", "<leader>rf", ":Refactor extract_to_file ")
+
+-- Extract selected code into a new variable within the same scope
+vim.keymap.set("x", "<leader>rv", ":Refactor extract_var ")
+
+-- Inline the selected variable, replacing its occurrences with its value
+vim.keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
+
+-- Inline a function, replacing the function call with its body
+vim.keymap.set("n", "<leader>rI", ":Refactor inline_func")
+
+-- Extract a code block in normal mode into a new function within the same file
+vim.keymap.set("n", "<leader>rb", ":Refactor extract_block")
+
+-- Extract a code block in normal mode into a new function in a separate file
+vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
+
+
+-- lsp
+vim.api.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true }) -- refactor variable
+

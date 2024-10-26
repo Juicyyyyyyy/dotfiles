@@ -181,6 +181,17 @@ return {
     -- log_level = 'debug',
   },
 },
+
+  {
+    "ThePrimeagen/refactoring.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("refactoring").setup()
+    end,
+  },
   
   -- **Themes**: Import themes from themes.lua
   unpack(require("themes")),
