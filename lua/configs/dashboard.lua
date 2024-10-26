@@ -43,9 +43,33 @@ local function footer()
     "Dwell on the beauty of life. Watch the stars, and see yourself running with them.",
     "Our life is what our thoughts make it.",
     "If it is not right do not do it; if it is not true do not say it.",
+    "Waste no more time arguing about what a good man should be. Be one.",
+    "He who fears death will never do anything worthy of a man who is alive.",
+    "It is not death that a man should fear, but he should fear never beginning to live.",
+    "Begin at once to live, and count each separate day as a separate life.",
+    "Don’t explain your philosophy. Embody it.",
+    "We suffer more often in imagination than in reality.",
+    "Luck is what happens when preparation meets opportunity.",
+    "The best revenge is not to be like your enemy.",
+    "It does not matter how slowly you go as long as you do not stop.",
+    "Accept the things to which fate binds you, and love the people with whom fate brings you together.",
+    "You don’t have to turn this into something. It doesn’t have to upset you.",
+    "The obstacle is the way.",
+    "When we are no longer able to change a situation, we are challenged to change ourselves.",
+    "Think of the whole universe of matter and how small your share.",
+    "Silence is a lesson learned through life’s many sufferings.",
+    "Be tolerant with others and strict with yourself.",
+    "He who lives in harmony with himself lives in harmony with the universe.",
+    "Today I escaped anxiety. Or no, I discarded it, because it was within me.",
+    "To improve is to change; to be perfect is to change often.",
+    "Self-control is strength. Calmness is mastery.",
+    "Never let the future disturb you. You will meet it, if you have to, with the same weapons of reason which today arm you against the present.",
+    "No man is free who is not master of himself.",
+    "It is the power of the mind to be unconquerable.",
   }
   return "\n\n" .. "« " .. quotes[math.random(#quotes)] .. " »"
 end
+
 
 dashboard.section.footer.val = footer()
 
