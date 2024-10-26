@@ -121,5 +121,18 @@ return {
       vim.cmd("colorscheme everforest")
     end,
   },
+  
+  -- **Catppuccin Theme**: A customizable theme with soft colors and high contrast
+  {
+    "catppuccin/nvim",
+    as = "catppuccin",
+    config = function()
+      require("catppuccin").setup({
+        flavour = "mocha", -- Options: latte, frappe, macchiato, mocha
+        -- You can add Catppuccin-specific configurations here
+      })
+      vim.cmd("colorscheme catppuccin")
+    end,
+  },
 }
 

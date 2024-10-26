@@ -27,10 +27,13 @@ vim.schedule(function()
 end)
 
 -- Set default theme
-vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme catppuccin-mocha")
+
+-- desactivate default nvim status bar (replaced with lualine plugin)
+vim.o.cmdheight = 0
 
 vim.cmd([[
   highlight DashboardHeader guifg=#7E9CD8 ctermfg=75
   highlight DashboardButtons guifg=#A3D4D5 ctermfg=152
-  highlight DashboardFooterBold guifg=#ff9e64 gui=bold
+  highlight DashboardFooterBold guifg=#7E9CD8 gui=bold
 ]])

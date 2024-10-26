@@ -159,7 +159,14 @@ return {
     require("project_nvim").setup {}
   end,
   },
-
+  
+  {
+  "nvim-lualine/lualine.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  config = function()
+    require("configs.lualine")
+  end,
+  },
   
   -- **Themes**: Import themes from themes.lua
   unpack(require("themes")),
