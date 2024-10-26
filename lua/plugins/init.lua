@@ -181,18 +181,57 @@ return {
     -- log_level = 'debug',
   },
 },
-
+  
+  -- **image.nvim**: Automatically display images when opening image files
   {
-    "ThePrimeagen/refactoring.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
+    "3rd/image.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },  -- Required dependency
     config = function()
-      require("refactoring").setup()
+      require("image").setup({
+        backend = "kitty",  -- Choose your preferred backend: "kitty" or "ueberzugpp"
+        integrations = {
+          markdown = {
+            enabled = true,
+            clear_in_insert_mode = false,
+            download_remote_images = true,
+            only_render_image_at_cursor = false,
+            filetypes = { "markdown", "vimwiki" }, -- Add other markdown-based filetypes if needed
+          },
+          neorg = {
+            enabled = true,
+            clear_in_insert_mode = false,
+            download_remote_images = true,
+            only_render_image_at_cursor = false,
+            filetypes = { "norg" },
+          },
+          html = {
+            enabled = false,
+          },
+          css = {
+            enabled = false,
+          },
+        },
+        max_width = nil,
+        max_height = nil,
+        max_width_window_percentage = nil,
+        max_height_window_percentage = 50,
+        window_overlap_clear_enabled = false, -- Toggle image visibility when windows overlap
+        window_overlap_clear_ft_ignore = { "cmp_menu", "cmp_docs", "" },
+        editor_only_render_when_focused = false, -- Auto show/hide images based on editor focus
+        tmux_show_only_in_active_window = false, -- Auto show/hide images in the active Tmux window
+        hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif" }, -- Automatically render these file types as images
+      })
+
+      -- Optional: Automatically load images when opening image files
+      vim.api.nvim_create_autocmd("BufReadPost", {
+        pattern = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.avif" },
+        callback = function()
+          vim.cmd("ImageLoad")
+        end,
+      })
     end,
   },
-  
+
   -- **Themes**: Import themes from themes.lua
   unpack(require("themes")),
 }
