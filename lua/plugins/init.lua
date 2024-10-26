@@ -153,6 +153,7 @@ return {
     end,
   },
   
+  -- **Project management**: Automatically manage project settings
   {
   "ahmedkhalf/project.nvim",
   config = function()
@@ -160,6 +161,7 @@ return {
   end,
   },
   
+  -- **Status line**: Configure Lualine as a status line
   {
   "nvim-lualine/lualine.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -167,6 +169,18 @@ return {
     require("configs.lualine")
   end,
   },
+  
+  -- **Auto session management**: Save and restore sessions automatically
+  {
+  'rmagatti/auto-session',
+  lazy = false,
+  opts = {
+    auto_session_enable_last_session = false,
+    auto_restore_enabled = false,  -- Disable automatic session restoration
+    suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
+    -- log_level = 'debug',
+  },
+},
   
   -- **Themes**: Import themes from themes.lua
   unpack(require("themes")),

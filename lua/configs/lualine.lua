@@ -23,7 +23,7 @@ require('lualine').setup {
     globalstatus = true,     -- Enable global status line (Neovim 0.7+)
     component_separators = { left = '', right = '' },
     section_separators   = { left = '', right = '' },
-    disabled_filetypes = { 'NvimTree', 'dashboard' },
+    disabled_filetypes = { 'NvimTree', 'alpha' },
   },
   sections = {
     lualine_a = {

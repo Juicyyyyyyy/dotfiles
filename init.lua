@@ -4,6 +4,9 @@ vim.g.mapleader = " "
 -- Unmap space in normal and visual modes to prevent it from moving the cursor
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
+-- activate number of line by default
+vim.opt.number = true
+
 -- Bootstrap lazy.nvim and all plugins
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazypath) then
@@ -32,6 +35,9 @@ vim.cmd("colorscheme catppuccin-mocha")
 -- desactivate default nvim status bar (replaced with lualine plugin)
 vim.o.cmdheight = 0
 
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
+-- Update Dashboard style
 vim.cmd([[
   highlight DashboardHeader guifg=#7E9CD8 ctermfg=75
   highlight DashboardButtons guifg=#A3D4D5 ctermfg=152
