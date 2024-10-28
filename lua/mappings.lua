@@ -16,8 +16,6 @@ local function open_terminal_horizontal()
   vim.cmd('startinsert')
 end
 
-
-
 -- Remap ; to enter command mode
 map("n", ";", ":", { desc = "CMD enter command mode" })
 
@@ -54,9 +52,6 @@ map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "toggle line number" })
 map("n", "<leader>fm", function()
   require("conform").format { lsp_fallback = true }
 end, { desc = "general format file" })
-
--- tabufline
-map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
 
 -- Comment
 map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
@@ -97,6 +92,7 @@ end, { desc = "whichkey query lookup" })
 -- bufferline
 vim.api.nvim_set_keymap("n", "<Tab>", [[<Cmd>BufferLineCycleNext<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<S-Tab>", [[<Cmd>BufferLineCyclePrev<CR>]], { noremap = true, silent = true })
+
 
 -- lsp
 vim.api.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true }) -- refactor variable

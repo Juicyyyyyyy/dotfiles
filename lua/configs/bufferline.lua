@@ -48,28 +48,20 @@ require('bufferline').setup {
         enforce_regular_tabs = false,
         always_show_bufferline = true,
         sort_by = 'id', -- Sort buffers by their id
+        
+        custom_filter = function(buf_number)
+        -- Exclude terminal buffers from bufferline
+        return vim.bo[buf_number].buftype ~= 'terminal'
+        end,
     }
 }
 
 -- Updated key mappings for buffer navigation
 local opts = { noremap = true, silent = true }
 
--- Navigate buffers
-vim.api.nvim_set_keymap('n', '<S-l>', ':BufferLineCycleNext<CR>', opts)
-vim.api.nvim_set_keymap('n', '<S-h>', ':BufferLineCyclePrev<CR>', opts)
-
--- Re-order buffers
-vim.api.nvim_set_keymap('n', '<A-]>', ':BufferLineMoveNext<CR>', opts)
-vim.api.nvim_set_keymap('n', '<A-[>', ':BufferLineMovePrev<CR>', opts)
-
--- Go to buffer by number
-vim.api.nvim_set_keymap('n', '<leader>1', ':BufferLineGoToBuffer 1<CR>', opts)
-vim.api.nvim_set_keymap('n', '<leader>2', ':BufferLineGoToBuffer 2<CR>', opts)
--- Repeat for as many buffers as you use
-
 -- Close buffer
-vim.api.nvim_set_keymap('n', '<S-c>', ':bdelete<CR>', opts)
+-- vim.api.nvim_set_keymap('n', '<S-c>', ':bdelete<CR>', opts)
 
 -- Open a new buffer and switch to it
-vim.api.nvim_set_keymap("n", "<S-b>", ":enew<CR>", opts)
+-- vim.api.nvim_set_keymap("n", "<S-b>", ":enew<CR>", opts)
 
