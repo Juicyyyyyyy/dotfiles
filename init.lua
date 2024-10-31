@@ -7,6 +7,9 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- activate number of line by default
 vim.opt.number = true
 
+-- automatically copy to clipboard
+vim.opt.clipboard = "unnamedplus"
+
 -- Disable line numbers in terminal buffers
 vim.api.nvim_create_autocmd("TermOpen", {
   pattern = "*",

@@ -83,12 +83,31 @@ return {
   },
 
   -- **nvim-tree**: File explorer
-  {
-    "nvim-tree/nvim-tree.lua",
-    config = function()
-      require'nvim-tree'.setup {}
-    end,
-  },
+{
+  "nvim-tree/nvim-tree.lua",
+  config = function()
+    require'nvim-tree'.setup {
+      git = {
+        enable = true,  -- Enable git integration
+        ignore = false, -- Show ignored files
+        timeout = 500,  -- Set the timeout for git status (in milliseconds)
+      },
+      view = {
+        width = 30,
+        side = "left",
+      },
+      renderer = {
+        highlight_git = true, -- Enable git highlighting in the file explorer
+        icons = {
+          show = {
+            git = true,  -- Show git icons next to files and folders
+          },
+        },
+      },
+    }
+  end,
+},
+
 
   -- **Telescope**: Fuzzy finder and picker
   {
@@ -231,7 +250,21 @@ return {
       })
     end,
   },
+  
+  -- **nvim-autopairs**: Automatically close brackets, quotes, etc.
+  {
+    'windwp/nvim-autopairs',
+    config = function()
+      local npairs = require("nvim-autopairs")
+      npairs.setup({})
 
+      -- Optional integration with nvim-cmp
+      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+      local cmp = require("cmp")
+      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+    end,
+  },
+  
   -- **Themes**: Import themes from themes.lua
   unpack(require("themes")),
 }
