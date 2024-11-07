@@ -25,13 +25,13 @@ dashboard.section.header.val = {
 }
 
 dashboard.section.buttons.val = {
-  dashboard.button("e", "  New file", ":ene <BAR> startinsert<CR>"),
   dashboard.button("f", "  Find file", ":Telescope find_files<CR>"),
   dashboard.button("r", "  Recent files", ":Telescope oldfiles<CR>"),
   dashboard.button("p", "  Projects", ":Telescope projects<CR>"),
   dashboard.button("s", "  Open last session", ":SessionRestore<CR>"),
   dashboard.button("h", "  Web bookmarks", ":silent !xdg-open https://fluoridated-roquefort-298.notion.site <CR>"),
   dashboard.button("w", "  Epita forge", ":silent !xdg-open https://intra.forge.epita.fr <CR>"),
+  dashboard.button("c", "  Config", ":edit ~/.config/<CR>"),
   dashboard.button("q", "  Quit", ":qa<CR>"),
 }
 
