@@ -1,12 +1,12 @@
 return {
 
- -- Dashboard configuration
+  -- Dashboard configuration
   {
-  'goolord/alpha-nvim',
-  dependencies = { 'nvim-tree/nvim-web-devicons' },  -- For file icons
-  config = function()
-    require('configs.dashboard')
-  end,
+    'goolord/alpha-nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },  -- For file icons
+    config = function()
+      require('configs.dashboard')
+    end,
   },
   
   -- **Conform.nvim**: Format code on save
@@ -14,14 +14,6 @@ return {
     "stevearc/conform.nvim",
     event = 'BufWritePre',
     opts = require "configs.conform",
-  },
-
-  -- **Neovim LSP Configuration**
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require "configs.lspconfig"
-    end,
   },
 
   -- **nvim-treesitter**: Enhanced syntax highlighting and parsing
@@ -50,63 +42,31 @@ return {
     end,
   },
 
-  -- **ALE**: Asynchronous linting and fixing
-  {
-    "dense-analysis/ale",
-    config = function()
-      vim.g.ale_linters = { c = { 'clang', 'gcc' } }
-      vim.g.ale_fixers = { c = { 'clang-format' } }
-    end,
-  },
-
-  -- **Debugging with nvim-dap and extensions**
-  {
-    "mfussenegger/nvim-dap",  -- Debug Adapter Protocol client
-  },
-  {
-    "rcarriga/nvim-dap-ui",   -- UI enhancements for nvim-dap
-    dependencies = {
-      "mfussenegger/nvim-dap",
-      "nvim-neotest/nvim-nio", -- Required dependency for nvim-dap-ui
-    },
-    config = function()
-      require("dapui").setup()
-    end,
-  },
-  {
-    "theHamsta/nvim-dap-virtual-text", -- Show virtual text for variables
-    dependencies = "mfussenegger/nvim-dap",
-    config = function()
-      require("nvim-dap-virtual-text").setup()
-    end,
-  },
-
   -- **nvim-tree**: File explorer
-{
-  "nvim-tree/nvim-tree.lua",
-  config = function()
-    require'nvim-tree'.setup {
-      git = {
-        enable = true,  -- Enable git integration
-        ignore = false, -- Show ignored files
-        timeout = 500,  -- Set the timeout for git status (in milliseconds)
-      },
-      view = {
-        width = 30,
-        side = "left",
-      },
-      renderer = {
-        highlight_git = true, -- Enable git highlighting in the file explorer
-        icons = {
-          show = {
-            git = true,  -- Show git icons next to files and folders
+  {
+    "nvim-tree/nvim-tree.lua",
+    config = function()
+      require'nvim-tree'.setup {
+        git = {
+          enable = true,  -- Enable git integration
+          ignore = false, -- Show ignored files
+          timeout = 500,  -- Set the timeout for git status (in milliseconds)
+        },
+        view = {
+          width = 30,
+          side = "left",
+        },
+        renderer = {
+          highlight_git = true, -- Enable git highlighting in the file explorer
+          icons = {
+            show = {
+              git = true,  -- Show git icons next to files and folders
+            },
           },
         },
-      },
-    }
-  end,
-},
-
+      }
+    end,
+  },
 
   -- **Telescope**: Fuzzy finder and picker
   {
@@ -120,11 +80,6 @@ return {
     config = function()
       require'lsp_signature'.setup()
     end,
-  },
-
-  -- **null-ls.nvim**: Use external tools with LSP features
-  {
-    "jose-elias-alvarez/null-ls.nvim",
   },
 
   -- **lspkind-nvim**: Adds icons to completion items
@@ -154,15 +109,14 @@ return {
   },
   
   -- Bufferline plugin for tabbar
-{
-  'akinsho/bufferline.nvim',
-  dependencies = 'nvim-tree/nvim-web-devicons',
-  config = function()
-    require('configs.bufferline')
-  end,
-},
+  {
+    'akinsho/bufferline.nvim',
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    config = function()
+      require('configs.bufferline')
+    end,
+  },
 
-  
   -- **nvim-web-devicons**: Icons for files and more
   {
     "nvim-tree/nvim-web-devicons",
@@ -173,32 +127,32 @@ return {
   
   -- **Project management**: Automatically manage project settings
   {
-  "ahmedkhalf/project.nvim",
-  config = function()
-    require("project_nvim").setup {}
-  end,
+    "ahmedkhalf/project.nvim",
+    config = function()
+      require("project_nvim").setup {}
+    end,
   },
   
   -- **Status line**: Configure Lualine as a status line
   {
-  "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
-  config = function()
-    require("configs.lualine")
-  end,
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("configs.lualine")
+    end,
   },
   
   -- **Auto session management**: Save and restore sessions automatically
   {
-  'rmagatti/auto-session',
-  lazy = false,
-  opts = {
-    auto_session_enable_last_session = false,
-    auto_restore_enabled = false,  -- Disable automatic session restoration
-    suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
-    -- log_level = 'debug',
+    'rmagatti/auto-session',
+    lazy = false,
+    opts = {
+      auto_session_enable_last_session = false,
+      auto_restore_enabled = false,  -- Disable automatic session restoration
+      suppressed_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
+      -- log_level = 'debug',
+    },
   },
-},
   
   -- **image.nvim**: Automatically display images when opening image files
   {
@@ -263,7 +217,37 @@ return {
       cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
     end,
   },
-  
-  -- **Themes**: Import themes from themes.lua
+
+-- **Mason.nvim**: LSP and more installation manager
+{
+  "williamboman/mason.nvim",
+  build = ":MasonUpdate", -- Optional: Update Mason packages after installation
+  config = function()
+    require("mason").setup()
+  end,
+},
+
+-- **mason-lspconfig.nvim**: Bridges Mason with lspconfig
+{
+  "williamboman/mason-lspconfig.nvim",
+  dependencies = { "williamboman/mason.nvim" },
+  config = function()
+    require("mason-lspconfig").setup({
+      ensure_installed = { "clangd", "lua_ls" }, -- Install LSP servers for C and Lua
+      automatic_installation = true,
+    })
+  end,
+},
+
+-- **nvim-lspconfig**: Quickstart configurations for the Nvim LSP client
+{
+  "neovim/nvim-lspconfig",
+  dependencies = { "williamboman/mason-lspconfig.nvim" },
+  config = function()
+    require("configs.lsp")
+  end,
+},
+
   unpack(require("themes")),
 }
+

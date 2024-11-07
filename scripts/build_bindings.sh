@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Source the configuration file
+if [ -f "$HOME/.config/.env" ]; then
+  source "$HOME/.config/.env"
+fi
+
 # Check for required utilities
 if ! command -v xdotool &> /dev/null; then
     echo "xdotool not found. Please install xdotool."
@@ -102,10 +107,10 @@ add_custom_keybinding() {
 # Add custom keybindings
 
 # Open Terminal
-add_custom_keybinding "Open Terminal" "kitty" "<Super>t"
+add_custom_keybinding "Open Terminal" "$TERMINAL" "<Super>t"
 
-# Open Application Launcher (using rofi or gnome launcher)
-add_custom_keybinding "Open Files" "nautilus" "<Super>d"
+# Open Application Launcher 
+add_custom_keybinding "Open Launcher" "$LAUNCHER_COMMAND" "<Super>d"
 
 # Move focus between windows (requires installation of xdotool and wmctrl)
 add_custom_keybinding "Focus Left" "xdotool key Alt+Escape" "<Super>h"
