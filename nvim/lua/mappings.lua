@@ -1,19 +1,19 @@
-local map = vim.keymap.set  -- Create an alias for vim.keymap.set
+local map = vim.keymap.set -- Create an alias for vim.keymap.set
 
 -- Functions
 
 -- Function to open a terminal in a horizontal split with 30% height
 local function open_terminal_horizontal()
-  -- Get the total number of lines available in the editor
-  local total_height = vim.o.lines - vim.o.cmdheight - 2  -- Subtract command line and status line
-  -- Calculate 30% of the total height
-  local split_height = math.floor(total_height * 0.3)
-  -- Open a horizontal split with the calculated height below the current window
-  vim.cmd('belowright ' .. split_height .. 'split')
-  -- Open the terminal in the new split
-  vim.cmd('terminal')
-  -- Start in insert mode
-  vim.cmd('startinsert')
+	-- Get the total number of lines available in the editor
+	local total_height = vim.o.lines - vim.o.cmdheight - 2 -- Subtract command line and status line
+	-- Calculate 30% of the total height
+	local split_height = math.floor(total_height * 0.3)
+	-- Open a horizontal split with the calculated height below the current window
+	vim.cmd('belowright ' .. split_height .. 'split')
+	-- Open the terminal in the new split
+	vim.cmd('terminal')
+	-- Start in insert mode
+	vim.cmd('startinsert')
 end
 
 -- Remap ; to enter command mode
@@ -24,11 +24,12 @@ map("i", "jk", "<ESC>")
 
 -- Delete word and switch to insert mode
 map("n", "<leader>a", "caw", { desc = "Delete word and switch to insert mode" })
+map("n", "<leader>ca", "ggVGy", { desc = "Copy all page" })
 
 -- Modify content within parentheses
 map("n", "<leader>cw", "_ci(", { desc = "Change within parentheses" })
 
--- NVCHAD mappings 
+-- NVCHAD mappings
 
 map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
 map("i", "<C-e>", "<End>", { desc = "move end of line" })
@@ -50,7 +51,7 @@ map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "general copy whole file" })
 map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "toggle line number" })
 
 map("n", "<leader>fm", function()
-  require("conform").format { lsp_fallback = true }
+	require("conform").format { lsp_fallback = true }
 end, { desc = "general format file" })
 
 -- Comment
@@ -69,10 +70,10 @@ map("n", "<leader>t", "<cmd>Telescope colorscheme<CR>", { desc = "Select theme" 
 
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
 map(
-  "n",
-  "<leader>fa",
-  "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
-  { desc = "telescope find all files" }
+	"n",
+	"<leader>fa",
+	"<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>",
+	{ desc = "telescope find all files" }
 )
 
 -- terminal
@@ -86,13 +87,24 @@ vim.keymap.set('n', '<leader>h', open_terminal_horizontal, { desc = 'Horizontal 
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
 
 map("n", "<leader>wk", function()
-  vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ")
+	vim.cmd("WhichKey " .. vim.fn.input "WhichKey: ")
 end, { desc = "whichkey query lookup" })
 
 -- bufferline
 vim.api.nvim_set_keymap("n", "<Tab>", [[<Cmd>BufferLineCycleNext<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<S-Tab>", [[<Cmd>BufferLineCyclePrev<CR>]], { noremap = true, silent = true })
 
+-- LSP key mappings
+map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+map("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
+map("n", "gr", vim.lsp.buf.references, { desc = "Find references" })
+map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
+map("n", "K", vim.lsp.buf.hover, { desc = "Show hover information" })
+-- map("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "Show signature help" })
+map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
+-- map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Show code actions" })
 
--- lsp
-vim.api.nvim_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true }) -- refactor variable
+--map("n", "<leader>f", function()
+--	vim.lsp.buf.format { async = true }
+-- end, { desc = "Format buffer" })
+
