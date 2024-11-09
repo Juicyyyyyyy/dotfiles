@@ -20,14 +20,15 @@ cmp.setup({
   -- Configure window appearance
   window = {
     completion = cmp.config.window.bordered({
-      -- winhighlight = "Normal:Pmenu,CursorLine:PmenuSel,Search:None",
-      scrollbar = true,
-      --border = "rounded",
+      winhighlight = "Normal:None,FloatBorder:None,CursorLine:PmenuSel,Search:None",
+      scrollbar = false, -- Disable scrollbar
+      -- Additional window options can be added here
     }),
     documentation = cmp.config.window.bordered({
-      -- winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder",
-      scrollbar = false,
-      border = "rounded",
+      winhighlight = "Normal:None,FloatBorder:None",
+      scrollbar = false, -- Disable scrollbar
+      -- You can set a max width for the documentation window if desired
+      -- max_width = 60,
     }),
   },
 
