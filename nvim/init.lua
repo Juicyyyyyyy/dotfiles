@@ -56,5 +56,7 @@ vim.cmd([[
   highlight DashboardFooterBold guifg=#7E9CD8 gui=bold
 ]])
 
+vim.o.pumheight = 5
+
 -- remove background color, to apply kitty transparency
 --vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
