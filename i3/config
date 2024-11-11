@@ -1,6 +1,6 @@
 # Set global inner and outer gaps
 gaps inner 10
-gaps outer 10
+# gaps outer 10
 
 # i3 config file (v4)
 #
@@ -18,6 +18,12 @@ font pango:monospace 8
 
 # autostart picom 
 exec_always --no-startup-id picom
+
+## Polybar
+# Kill existing Polybar instances (to prevent duplicates)
+exec --no-startup-id pkill polybar
+# Start Polybar 
+exec --no-startup-id polybar bar &
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -182,6 +188,6 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-}
+#bar {
+#        status_command i3status
+#}
