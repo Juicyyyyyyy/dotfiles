@@ -62,13 +62,19 @@ map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
 
 -- telescope
-map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "telescope live grep" })
+-- Live grep in current folder
+map("n", "<leader>fw", function()
+  require("telescope.builtin").live_grep({ cwd = vim.fn.expand("%:p:h") })
+end, { desc = "Live grep in current folder" })
 map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "telescope find buffers" })
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "telescope help page" })
 map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "telescope find in current buffer" })
 map("n", "<leader>t", "<cmd>Telescope colorscheme<CR>", { desc = "Select theme" })
 
-map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
+-- Find files in current folder
+map("n", "<leader>ff", function()
+  require("telescope.builtin").find_files({ cwd = vim.fn.expand("%:p:h") })
+end, { desc = "Find files in current folder" })
 map(
 	"n",
 	"<leader>fa",
