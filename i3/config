@@ -22,8 +22,8 @@ exec_always --no-startup-id picom
 ## Polybar
 # Kill existing Polybar instances (to prevent duplicates)
 exec --no-startup-id pkill polybar
-# Start Polybar 
-exec --no-startup-id polybar bar &
+# Start Polybar automatically on each screen 
+exec --no-startup-id ~/.config/polybar/launch.sh
 
 # set natural scrolling
 exec --no-startup-id xinput set-prop 13 "libinput Natural Scrolling Enabled" 1
