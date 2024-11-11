@@ -25,6 +25,12 @@ exec --no-startup-id pkill polybar
 # Start Polybar 
 exec --no-startup-id polybar bar &
 
+# set natural scrolling
+exec --no-startup-id xinput set-prop 13 "libinput Natural Scrolling Enabled" 1
+
+# set tap touchpad to click
+exec --no-startup-id xinput set-prop 13 "libinput Tapping Enabled" 1
+
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
