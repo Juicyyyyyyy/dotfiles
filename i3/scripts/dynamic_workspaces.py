@@ -33,4 +33,7 @@ if __name__ == "__main__":
     print(i3.get_tree().find_focused().workspace().name)
     
     i3.on("workspace::focus", adjust_layout)
+    i3.on("window::close", adjust_layout)
+    i3.on("workspace::empty", adjust_layout)
+
     i3.main()
