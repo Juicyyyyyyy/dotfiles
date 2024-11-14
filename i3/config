@@ -190,5 +190,4 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # include scripts
-exec_always --no-startup-id ~/.config/i3/scripts/renumber_workspaces.py
-exec_always --no-startup-id ~/.config/i3/scripts/manage_workspaces.py
+exec_always --no-startup-id ~/.config/i3/scripts/dynamic_workspaces.py
