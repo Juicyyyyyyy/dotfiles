@@ -57,7 +57,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+q kill
@@ -134,14 +134,14 @@ set $ws10 "10"
 # every workspace bind is incremented by one because the closed laptop
 # is counted as a workspaces
 # This is a short term solution and needs to be changed later.
-bindsym $mod+1 workspace --no-auto-back-and-forth number $ws2
-bindsym $mod+2 workspace --no-auto-back-and-forth number $ws3
-bindsym $mod+3 workspace --no-auto-back-and-forth number $ws4
-bindsym $mod+4 workspace --no-auto-back-and-forth number $ws5
-bindsym $mod+5 workspace --no-auto-back-and-forth number $ws6
-bindsym $mod+6 workspace --no-auto-back-and-forth number $ws7
-bindsym $mod+7 workspace --no-auto-back-and-forth number $ws8
-bindsym $mod+8 workspace --no-auto-back-and-forth number $ws9
+bindsym $mod+1 workspace --no-auto-back-and-forth number $ws1
+bindsym $mod+2 workspace --no-auto-back-and-forth number $ws2
+bindsym $mod+3 workspace --no-auto-back-and-forth number $ws3
+bindsym $mod+4 workspace --no-auto-back-and-forth number $ws4
+bindsym $mod+5 workspace --no-auto-back-and-forth number $ws5
+bindsym $mod+6 workspace --no-auto-back-and-forth number $ws6
+bindsym $mod+7 workspace --no-auto-back-and-forth number $ws7
+bindsym $mod+8 workspace --no-auto-back-and-forth number $ws8
 bindsym $mod+9 workspace --no-auto-back-and-forth number $ws10
 
 
