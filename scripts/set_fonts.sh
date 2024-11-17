@@ -42,7 +42,6 @@ set_kitty_font() {
     echo "Kitty font updated. Please restart Kitty."
 }
 
-font="FiraCode"
-install_nerd_font_sparse "$font"
+install_nerd_font_sparse "FiraCode"
 
 set_kitty_font

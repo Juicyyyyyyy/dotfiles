@@ -11,7 +11,6 @@ PACKAGES=(
   zsh
   curl
   kitty
-  fira-code
   polybar
   rofi
   i3

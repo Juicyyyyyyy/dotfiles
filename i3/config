@@ -190,5 +190,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# remove window top bar
+for_window [class=".*"] border pixel 0
+
 # include scripts
 exec_always --no-startup-id ~/.config/i3/scripts/dynamic_workspaces.py
