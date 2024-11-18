@@ -12,21 +12,6 @@ font pango:monospace 8
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
-# autostart picom 
-exec_always --no-startup-id picom
-
-## Polybar
-# Kill existing Polybar instances (to prevent duplicates)
-exec --no-startup-id pkill polybar
-# Start Polybar automatically on each screen 
-exec --no-startup-id ~/.config/polybar/launch.sh
-
-# set natural scrolling
-exec --no-startup-id xinput set-prop 13 "libinput Natural Scrolling Enabled" 1
-
-# set tap touchpad to click
-exec --no-startup-id xinput set-prop 13 "libinput Tapping Enabled" 1
-
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
@@ -192,6 +177,26 @@ bindsym $mod+r mode "resize"
 
 # remove window top bar
 for_window [class=".*"] border pixel 0
+
+# Custom auto exec 
+
+# Set wallpaper
+exec --no-startup-id feh --bg-center ~/.config/wallpapers/demon_girl.jpeg
+
+# set natural scrolling
+exec --no-startup-id xinput set-prop 13 "libinput Natural Scrolling Enabled" 1
+
+# set tap touchpad to click
+exec --no-startup-id xinput set-prop 13 "libinput Tapping Enabled" 1
+
+# Picom
+exec_always --no-startup-id picom
+
+## Polybar
+# Kill existing Polybar instances (to prevent duplicates)
+exec --no-startup-id pkill polybar
+# Start Polybar automatically on each screen 
+exec --no-startup-id ~/.config/polybar/launch.sh
 
 # include scripts
 exec_always --no-startup-id ~/.config/i3/scripts/dynamic_workspaces.py

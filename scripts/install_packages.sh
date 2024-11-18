@@ -16,6 +16,7 @@ PACKAGES=(
   i3
   python3-pip
   python3-i3ipc
+  feh
 )
 
 echo "Starting installation of packages..."
