@@ -15,5 +15,5 @@ theme='style-5'
 
 ## Run
 rofi \
-    -show drun \
+    -show drun -drun-match-fields name\
     -theme ${dir}/${theme}.rasi
