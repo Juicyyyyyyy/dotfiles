@@ -1,6 +1,6 @@
 # Set global inner and outer gaps
-gaps inner 10
-# gaps outer 10
+gaps inner 15
+gaps outer 10
 
 set $mod Mod4
 
@@ -178,14 +178,15 @@ bindsym $mod+r mode "resize"
 # remove window top bar
 for_window [class=".*"] border pixel 0
 
-# Custom auto exec 
+# Exclude from tiling 
+for_window [class="Nautilus"] floating enable
 
 # Set wallpaper
 exec --no-startup-id feh --bg-center ~/.config/wallpapers/demon_girl.jpeg
 
 # set natural scrolling
 # xinput list
-exec --no-startup-id xinput set-prop 10 "libinput Natural Scrolling Enabled" 1
+# exec --no-startup-id xinput set-prop 10 "libinput Natural Scrolling Enabled" 1
 
 # set tap touchpad to click
 exec --no-startup-id xinput set-prop 10 "libinput Tapping Enabled" 1

@@ -42,3 +42,4 @@ user-dirs.locale
 xdg-terminals.list
 backup
 rofi.vboxuser
+picom_ignore
