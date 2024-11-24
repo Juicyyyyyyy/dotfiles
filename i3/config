@@ -1,6 +1,5 @@
 # Set global inner and outer gaps
-gaps inner 15
-gaps outer 10
+gaps inner 20
 
 set $mod Mod4
 
