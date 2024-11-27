@@ -72,9 +72,8 @@ map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = 
 map("n", "<leader>t", "<cmd>Telescope colorscheme<CR>", { desc = "Select theme" })
 
 -- Find files in current folder
-map("n", "<leader>ff", function()
-  require("telescope.builtin").find_files({ cwd = vim.fn.expand("%:p:h") })
-end, { desc = "Find files in current folder" })
+map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
+
 map(
 	"n",
 	"<leader>fa",
@@ -106,11 +105,4 @@ map("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration" })
 map("n", "gr", vim.lsp.buf.references, { desc = "Find references" })
 map("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
 map("n", "K", vim.lsp.buf.hover, { desc = "Show hover information" })
--- map("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "Show signature help" })
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
--- map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Show code actions" })
-
---map("n", "<leader>f", function()
---	vim.lsp.buf.format { async = true }
--- end, { desc = "Format buffer" })
-
