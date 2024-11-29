@@ -16,7 +16,7 @@ done
 echo "Launching Polybar on all connected monitors..."
 
 # Detect connected monitors using xrandr and filter out disconnected ones
-MONITORS=$(xrandr --query | grep " connected" | awk '{ print $1 }')
+MONITORS=$(xrandr --query | grep " connected")
 
 # Check if any monitors are detected
 if [ -z "$MONITORS" ]; then
