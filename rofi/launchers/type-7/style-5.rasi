@@ -74,7 +74,7 @@ inputbar {
     background-image:            url("~/.config/wallpapers/dark_planet.jpeg", width);
     text-color:                  @foreground;
     orientation:                 horizontal;
-    children:                    [ "textbox-prompt-colon", "entry", "dummy", "mode-switcher" ];
+    children:                    [ "textbox-prompt-colon", "entry", "dummy"]; /* add "mode-switcher" in options to display mode switcher */
 }
 textbox-prompt-colon {
     enabled:                     true;

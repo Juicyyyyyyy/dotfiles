@@ -54,6 +54,8 @@ tiling_drag modifier titlebar
 # start a terminal
 bindsym $mod+Return exec kitty
 
+bindsym $mod+t exec kitty --class "kitty-floating"
+
 # kill focused window
 bindsym $mod+q kill
 
@@ -190,6 +192,8 @@ for_window [class=".*"] border pixel 0
 
 # Exclude from tiling 
 for_window [class="Nautilus"] floating enable
+for_window [class="Gnome-terminal"] floating enable
+for_window [instance="kitty-floating"] floating enable, resize set 800 600
 
 # Set wallpaper
 exec --no-startup-id feh --bg-center ~/.config/wallpapers/demon_girl.jpeg
