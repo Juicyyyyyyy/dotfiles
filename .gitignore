@@ -43,3 +43,13 @@ xdg-terminals.list
 backup
 rofi.vboxuser
 picom_ignore
+obs-studio
+libreoffice
+totem
+shotwell
+i3-xdg-terminals.list
+i3.log
+QtProject.conf
+git
+i3-xdg-terminals.list
+.env

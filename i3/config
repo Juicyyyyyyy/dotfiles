@@ -193,6 +193,7 @@ for_window [class=".*"] border pixel 0
 # Exclude from tiling 
 for_window [class="Nautilus"] floating enable
 for_window [class="Gnome-terminal"] floating enable
+for_window [class="1Password"] floating enable
 for_window [instance="kitty-floating"] floating enable, resize set 800 600
 
 # Set wallpaper
