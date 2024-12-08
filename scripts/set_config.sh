@@ -18,7 +18,10 @@ run_command() {
 # Commands to run
 commands=(
     "chsh -s $(which zsh)"
-    #"git config --global user.email 'you@example.com'"
+    "ln -s ~/.config/.zshrc ~/.zshrc"
+    "sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)""
+    "ln -s ~/.config/.oh-my-zsh ~/.oh-my-zsh"
+    "mv .p10k.zsh ../"
 )
 
 echo "Setting config"

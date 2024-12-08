@@ -10,8 +10,6 @@ microsoft-edge-dev
 menus
 JetBrains
 ibus
-gtk-4.0
-gtk-3.0
 google-chrome
 google-chrome-beta
 google-chrome-unstable
@@ -51,5 +49,5 @@ i3-xdg-terminals.list
 i3.log
 QtProject.conf
 git
-i3-xdg-terminals.list
 .env
+.oh-my-zsh/custom/
