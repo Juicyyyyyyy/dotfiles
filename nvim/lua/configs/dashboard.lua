@@ -25,12 +25,9 @@ dashboard.section.header.val = {
 }
 
 dashboard.section.buttons.val = {
+  dashboard.button("n", "  New note", ":lua CreateNewNote()<CR>"),
   dashboard.button("f", "  Find file", ":Telescope find_files<CR>"),
-  dashboard.button("r", "  Recent files", ":Telescope oldfiles<CR>"),
   dashboard.button("p", "  Projects", ":Telescope projects<CR>"),
-  dashboard.button("s", "  Open last session", ":SessionRestore<CR>"),
-  dashboard.button("h", "  Web bookmarks", ":silent !xdg-open https://fluoridated-roquefort-298.notion.site <CR>"),
-  dashboard.button("w", "  Epita forge", ":silent !xdg-open https://intra.forge.epita.fr <CR>"),
   dashboard.button("c", "  Config", ":edit ~/.config/<CR>"),
   dashboard.button("q", "  Quit", ":qa<CR>"),
 }
@@ -84,4 +81,15 @@ alpha.setup(dashboard.opts)
 vim.cmd([[
   autocmd FileType alpha setlocal nofoldenable
 ]])
+
+function CreateNewNote()
+  local notes_dir = "~/Documents/Notes/"
+  local input = vim.fn.input("New note name: ")
+  if input == "" then
+    print("Aborted: no name provided.")
+    return
+  end
+  local filepath = notes_dir .. input .. ".md"
+  vim.cmd("edit " .. filepath)
+end
 

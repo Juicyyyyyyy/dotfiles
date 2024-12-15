@@ -21,28 +21,28 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ':TSUpdate',
 		opts = {
-			ensure_installed = { "c", "cpp", "lua", "vim", "html", "css" },
+			ensure_installed = { "c", "cpp", "lua", "vim", "html", "css", "markdown" },
 			highlight = { enable = true },
 		},
 	},
 
 	-- **nvim-cmp**: Autocompletion plugin with snippet support
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-path',
-      'saadparwaiz1/cmp_luasnip',
-      'L3MON4D3/LuaSnip',
-      'rafamadriz/friendly-snippets',
-      'hrsh7th/cmp-nvim-lua',           -- Added for Neovim Lua API completions
-      'lukas-reineke/cmp-under-comparator', -- Added for enhanced sorting
-    },
-    config = function()
-      require "configs.cmpconfig"
-    end,
-  },
+	  {
+	    "hrsh7th/nvim-cmp",
+	    dependencies = {
+	      'hrsh7th/cmp-nvim-lsp',
+	      'hrsh7th/cmp-buffer',
+	      'hrsh7th/cmp-path',
+	      'saadparwaiz1/cmp_luasnip',
+	      'L3MON4D3/LuaSnip',
+	      'rafamadriz/friendly-snippets',
+	      'hrsh7th/cmp-nvim-lua',           -- Added for Neovim Lua API completions
+	      'lukas-reineke/cmp-under-comparator', -- Added for enhanced sorting
+	    },
+	    config = function()
+	      require "configs.cmpconfig"
+	    end,
+	  },
 
 	-- **nvim-tree**: File explorer
 	{
@@ -199,41 +199,6 @@ return {
 		config = function()
 			require("configs.lsp")
 		end,
-	},
-
-	-- **lspsaga.nvim**: Enhanced LSP UI
-	{
-		"glepnir/lspsaga.nvim",
-		event = "LspAttach",
-		config = function()
-			require("lspsaga").setup({
-				ui = {
-					theme = 'round',
-					border = 'rounded',
-					winblend = 10,
-				},
-				lightbulb = {
-					enable = true,
-					enable_in_insert = false,
-				},
-				finder = {
-					max_height = 0.5,
-				},
-				outline = {
-					win_position = "right",
-					win_width = 30,
-					auto_preview = true,
-				},
-				symbol_in_winbar = {
-					enable = true,
-					separator = "  ",
-				},
-				rename = {
-					in_select = false,
-				},
-			})
-		end,
-		dependencies = { { "nvim-tree/nvim-web-devicons" } },
 	},
 
 	-- **lsp_lines.nvim**: Inline diagnostics
