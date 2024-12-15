@@ -9,7 +9,7 @@ return {
       vim.cmd("colorscheme kanagawa")
     end,
   },
-  
+
   -- **Cyberdream Theme**
   {
     "scottmckendry/cyberdream.nvim",
@@ -19,7 +19,7 @@ return {
       vim.cmd("colorscheme cyberdream")
     end,
   },
-  
+
   -- **Miasma Theme**
   {
     "xero/miasma.nvim",
@@ -29,4 +29,14 @@ return {
       vim.cmd("colorscheme miasma")
     end,
   },
+{
+	"rose-pine/neovim",
+	name = "rose-pine",
+	config = function()
+		vim.cmd("colorscheme rose-pine")
+	end
 }
+
+}
+
+

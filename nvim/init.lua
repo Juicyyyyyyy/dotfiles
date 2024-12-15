@@ -42,7 +42,7 @@ vim.schedule(function()
 end)
 
 -- Set default theme
-vim.cmd("colorscheme catppuccin-mocha")
+vim.cmd("colorscheme rose-pine")
 
 -- desactivate default nvim status bar (replaced with lualine plugin)
 vim.o.cmdheight = 0

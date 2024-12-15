@@ -10,11 +10,11 @@ return {
 	},
 
 	-- **Conform.nvim**: Format code on save
-	{
-		"stevearc/conform.nvim",
-		event = 'BufWritePre',
-		opts = require "configs.conform",
-	},
+--	{
+--		"stevearc/conform.nvim",
+--		event = 'BufWritePre',
+--		opts = require "configs.conform",
+--	},
 
 	-- **nvim-treesitter**: Enhanced syntax highlighting and parsing
 	{
