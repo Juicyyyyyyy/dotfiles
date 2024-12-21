@@ -144,21 +144,6 @@ return {
 		},
 	},
 
-	-- **image.nvim**: Automatically display images
-	{
-		"3rd/image.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("image").setup({
-				backend = "kitty",
-				integrations = {
-					markdown = { enabled = true, download_remote_images = true },
-					neorg = { enabled = true, download_remote_images = true },
-				},
-			})
-		end,
-	},
-
 	-- **nvim-autopairs**: Automatically close brackets, quotes, etc.
 	{
 		'windwp/nvim-autopairs',
