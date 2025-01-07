@@ -34,7 +34,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- List of LSP servers to install and configure
-local servers = { 'clangd', 'pyright', 'lua_ls' } -- Add or remove servers as needed
+local servers = { 'clangd', 'pylsp', 'lua_ls' } -- Add or remove servers as needed
 
 -- Ensure the servers are installed
 mason_lspconfig.setup {

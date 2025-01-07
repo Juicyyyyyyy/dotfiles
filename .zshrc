@@ -114,3 +114,4 @@ for config_file ($ZSH/custom/*.zsh(N)) source $config_file
 export PGDATA="$HOME/postgres_data"
 export PGHOST="/tmp"
 export PATH="$PATH:/usr/lib/postgresql/17/bin/"
+
