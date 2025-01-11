@@ -26,7 +26,7 @@ configuration {
     background-alt:              #252525;
     text:                        #FFFFFF;
     primary:                     #505050;
-    active:                      #909090;
+    secondary:                   #909090;
     urgent:                      #707070;
 }
 
@@ -153,8 +153,8 @@ element normal.urgent {
     background-color:            @urgent;
     text-color:                  @text;
 }
-element normal.active {
-    background-color:            @active;
+element normal.secondary {
+    background-color:            @secondary;
     text-color:                  @text;
 }
 element selected.normal {
@@ -165,7 +165,7 @@ element selected.urgent {
     background-color:            @urgent;
     text-color:                  @text;
 }
-element selected.active {
+element selected.secondary {
     background-color:            @urgent;
     text-color:                  @text;
 }

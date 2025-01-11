@@ -19,7 +19,7 @@ configuration {
     background-alt:              #1A1A1C;
     text:                        #E5E5E7;
     primary:                     #6A8373; 
-    active:                      #48534C;
+    secondary:                   #48534C;
     urgent:                      #4A6C84;
 }
 
@@ -95,7 +95,7 @@ message {
     margin:                      0px;
     padding:                     15px;
     border-radius:               10px;
-    background-color:            @active;
+    background-color:            @secondary;
     text-color:                  @text;
 }
 textbox {
