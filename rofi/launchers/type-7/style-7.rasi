@@ -24,8 +24,8 @@ configuration {
     font:                        "JetBrains Mono Nerd Font 10";
     background:                  #101010;
     background-alt:              #252525;
-    foreground:                  #FFFFFF;
-    selected:                    #505050;
+    text:                        #FFFFFF;
+    primary:                     #505050;
     active:                      #909090;
     urgent:                      #707070;
 }
@@ -72,7 +72,7 @@ inputbar {
     padding:                     100px 40px;
     background-color:            transparent;
     background-image:            url("~/.config/rofi/images/night_house.jpg", width);
-    text-color:                  @foreground;
+    text-color:                  @text;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry" ];
 }
@@ -102,7 +102,7 @@ mode-switcher{
     enabled:                     true;
     spacing:                     10px;
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @text;
 }
 button {
     padding:                     12px;
@@ -112,8 +112,8 @@ button {
     cursor:                      pointer;
 }
 button selected {
-    background-color:            @selected;
-    text-color:                  @foreground;
+    background-color:            @primary;
+    text-color:                  @text;
 }
 
 /*****----- Listview -----*****/
@@ -131,7 +131,7 @@ listview {
     
     spacing:                     10px;
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @text;
     cursor:                      "default";
 }
 
@@ -142,7 +142,7 @@ element {
     padding:                     12px;
     border-radius:               100%;
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @text;
     cursor:                      pointer;
 }
 element normal.normal {
@@ -151,23 +151,23 @@ element normal.normal {
 }
 element normal.urgent {
     background-color:            @urgent;
-    text-color:                  @foreground;
+    text-color:                  @text;
 }
 element normal.active {
     background-color:            @active;
-    text-color:                  @foreground;
+    text-color:                  @text;
 }
 element selected.normal {
-    background-color:            @selected;
-    text-color:                  @foreground;
+    background-color:            @primary;
+    text-color:                  @text;
 }
 element selected.urgent {
     background-color:            @urgent;
-    text-color:                  @foreground;
+    text-color:                  @text;
 }
 element selected.active {
     background-color:            @urgent;
-    text-color:                  @foreground;
+    text-color:                  @text;
 }
 element-icon {
     background-color:            transparent;
@@ -191,7 +191,7 @@ textbox {
     padding:                     12px;
     border-radius:               100%;
     background-color:            @background-alt;
-    text-color:                  @foreground;
+    text-color:                  @text;
     vertical-align:              0.5;
     horizontal-align:            0.0;
 }
@@ -199,5 +199,5 @@ error-message {
     padding:                     15px;
     border-radius:               0px;
     background-color:            @background;
-    text-color:                  @foreground;
+    text-color:                  @text;
 }
