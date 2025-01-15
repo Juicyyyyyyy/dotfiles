@@ -58,5 +58,8 @@ vim.cmd([[
 
 vim.o.pumheight = 5
 
+vim.opt.wrap = true
+vim.opt.linebreak = true
+
 -- remove background color, to apply kitty transparency
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
