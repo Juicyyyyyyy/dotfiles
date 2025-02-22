@@ -10,6 +10,7 @@ vim.opt.number = true
 -- automatically copy to clipboard
 vim.opt.clipboard = "unnamedplus"
 
+
 -- Disable line numbers in terminal buffers
 vim.api.nvim_create_autocmd("TermOpen", {
   pattern = "*",
@@ -60,6 +61,9 @@ vim.o.pumheight = 5
 
 vim.opt.wrap = true
 vim.opt.linebreak = true
+
+-- for obsidian plugin to display fancy ui
+vim.opt_local.conceallevel = 1
 
 -- remove background color, to apply kitty transparency
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })

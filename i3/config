@@ -219,6 +219,8 @@ exec --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id ~/.config/i3/scripts/dynamic_workspaces.py
 exec_always --no-startup-id ~/.config/i3/scripts/improve_tiling.py
 
+exec --no-startup-id setxkbmap -option compose:ralt
+
 # set primary Rosé Pine colorscheme colors
 set $base           #191724
 set $surface        #1f1d2e
