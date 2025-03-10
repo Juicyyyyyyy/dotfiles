@@ -1,7 +1,6 @@
 local alpha = require('alpha')
 local dashboard = require('alpha.themes.dashboard')
 
--- Seed the random number generator
 math.randomseed(os.time())
 
 dashboard.section.header.val = {
@@ -25,14 +24,15 @@ dashboard.section.header.val = {
 }
 
 dashboard.section.buttons.val = {
-  dashboard.button("n", "  New note", ":lua CreateNewNote()<CR>"),
+  dashboard.button("C", "  New course", ":lua CreateNewCourse()<CR>"),
+  dashboard.button("J", "  New journal", ":lua CreateNewJournal()<CR>"),
+  dashboard.button("p", "󰐯  New project", ":lua CreateNewProject()<CR>"),
+  dashboard.button("n", "󰎜  New quick note", ":lua CreateQuickNote()<CR>"),
   dashboard.button("f", "  Find file", ":Telescope find_files<CR>"),
-  dashboard.button("p", "  Projects", ":Telescope projects<CR>"),
   dashboard.button("c", "  Config", ":edit ~/.config/<CR>"),
   dashboard.button("q", "  Quit", ":qa<CR>"),
 }
 
--- Function to get a random inspirational quote
 local function footer()
   local quotes = {
     "You have power over your mind - not outside events.",
@@ -70,7 +70,6 @@ end
 
 dashboard.section.footer.val = footer()
 
--- Set up highlight groups
 dashboard.section.header.opts.hl = "DashboardHeader"
 dashboard.section.buttons.opts.hl = "DashboardButtons"
 dashboard.section.footer.opts.hl = "DashboardFooterBold"
@@ -91,5 +90,39 @@ function CreateNewNote()
   end
   local filepath = notes_dir .. input .. ".md"
   vim.cmd("edit " .. filepath)
+end
+
+local dir = "~/Projects/juicy_second_brain/Scripts/"
+
+function CreateNewCourse()
+    local course_subject = vim.fn.input("Course subject: ")
+    local course_name = vim.fn.input("Course name: ")
+
+    local script_path = dir .. "new_course.sh"
+    local command = string.format('%s "%s" "%s"', script_path, course_subject, course_name)
+
+    os.execute(command)
+    vim.cmd("edit " .. "~/Projects/juicy_second_brain/Notes/" .. course_subject .. "/" .. course_name .. ".md")
+end
+
+function CreateNewJournal()
+    local script_path = dir .. "new_journal.sh"
+    os.execute(script_path)
+    vim.cmd("edit " .. "~/Projects/juicy_second_brain/Journal/" .. os.date("%Y-%m-%d") .. ".md")
+end
+
+function CreateNewProject()
+    local project_name = vim.fn.input("Project name: ")
+
+    local script_path = dir .. "new_project.sh"
+    local command = string.format('%s "%s"', script_path, project_name)
+
+    os.execute(command)
+    vim.cmd("edit " .. "~/Projects/juicy_second_brain/Projects/" .. project_name:gsub(" ", "-") .. "/README.md")
+end
+
+function CreateQuickNote()
+    local note_name = vim.fn.input("Note name: ")
+    vim.cmd("edit " .. "~/Projects/juicy_second_brain/Inbox/" .. note_name)
 end
 

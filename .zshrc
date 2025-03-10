@@ -115,3 +115,9 @@ export PGDATA="$HOME/postgres_data"
 export PGHOST="/tmp"
 export PATH="$PATH:/usr/lib/postgresql/17/bin/"
 
+export PATH=$PATH:/home/corentin/apache-maven-3.9.9/bin/mvn
+export PATH=$PATH:/home/corentin/apache-maven-3.9.9/bin
+export PATH=$PATH:/home/corentin/.cargo/bin
+export PGDATA="$HOME/postgres_data"
+export PGHOST="/tmp"
+export PGPORT="5432"
