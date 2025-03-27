@@ -35,6 +35,9 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+# International qwerty on start (for accents)
+exec --no-startup-id setxkbmap us altgr-intl
+
 # launch flameshot gui on print key
 # <flameshot config>  the command to update flameshot configuration
 bindsym Print exec --no-startup-id flameshot gui
@@ -64,7 +67,7 @@ bindsym $mod+q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-7/launcher.sh
 # start powermenu
-bindsym $mod+l exec --no-startup-id ~/.config/rofi/powermenu/type-6/powermenu.sh
+bindsym $mod+l exec --no-startup-id ~/.config/rofi/powermenu/type-5/powermenu.sh
 
 # change focus
 bindsym $mod+Left focus left
@@ -201,10 +204,8 @@ exec --no-startup-id nitrogen --restore
 
 # set natural scrolling
 # xinput list
-# exec --no-startup-id xinput set-prop 10 "libinput Natural Scrolling Enabled" 1
-
 # set tap touchpad to click
-exec --no-startup-id xinput set-prop 10 "libinput Tapping Enabled" 1
+exec --no-startup-id xinput set-prop 9 "libinput Tapping Enabled" 1
 
 # Picom
 exec_always --no-startup-id picom
