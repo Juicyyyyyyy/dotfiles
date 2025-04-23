@@ -10,7 +10,7 @@ def get_screen_resolution():
             return tuple(map(int, parts[0].split('x')))
     return (1920, 1080)
 
-WALLPAPER = os.path.expanduser('~/.config/wallpapers/desktop/capputcin/cat.jpeg')
+WALLPAPER = os.path.expanduser('~/.config/wallpapers/desktop/LanaDelRey.png')
 
 CACHE_DIR = os.path.expanduser('~/.config/wallpapers/i3lock')
 os.makedirs(CACHE_DIR, exist_ok=True)

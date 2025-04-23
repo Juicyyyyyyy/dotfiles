@@ -64,7 +64,7 @@ inputbar {
     spacing:                     20px;
     padding:                     100px 40px;
     background-color:            transparent;
-    background-image:            url("~/.config/wallpapers/sea_shells.jpeg", width);
+    background-image:            url("~/.config/wallpapers/desktop/holywood.jpg", width);
     children:                    [ "textbox-prompt-colon", "prompt"];
 }
 

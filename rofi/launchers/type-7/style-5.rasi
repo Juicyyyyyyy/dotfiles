@@ -71,7 +71,7 @@ inputbar {
     spacing:                     10px;
     padding:                     80px 60px;
     background-color:            transparent;
-	background-image: url("/home/corentin/.config/wallpapers/galaxy_maths.jpeg", width);
+	background-image: url("/home/corentin/.config/wallpapers/desktop/santa_monica.jpg", width);
     text-color:                  @text;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry", "dummy", "mode-switcher"]; /* add "mode-switcher" in options to display mode switcher */
