@@ -205,7 +205,7 @@ exec --no-startup-id nitrogen --restore
 # set natural scrolling
 # xinput list
 # set tap touchpad to click
-exec --no-startup-id xinput set-prop 9 "libinput Tapping Enabled" 1
+exec --no-startup-id ~/.config/i3/scripts/touchpad.sh
 
 # Picom
 exec_always --no-startup-id picom
