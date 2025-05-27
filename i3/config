@@ -67,7 +67,7 @@ bindsym $mod+q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-7/launcher.sh
 # start powermenu
-bindsym $mod+o exec --no-startup-id ~/.config/rofi/powermenu/type-5/powermenu.sh
+bindsym $mod+o exec --no-startup-id ~/.config/rofi/powermenu/type-6/powermenu.sh
 
 # change focus
 bindsym $mod+h focus left

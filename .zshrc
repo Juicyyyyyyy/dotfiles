@@ -13,7 +13,7 @@ fi
 # List of plugins to load
 plugins=(
   git
-  zsh-autosuggestions
+  #zsh-autosuggestions
   zsh-syntax-highlighting
   autojump
   docker
