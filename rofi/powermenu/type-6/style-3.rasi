@@ -57,7 +57,7 @@ imagebox {
     spacing:                     0px;
     padding:                     30px;
     background-color:            transparent;
-	background-image: url("/home/corentin/.config/wallpapers/maths_ghost_road_cropped.jpeg", width);
+	background-image: url("/home/corentin/.config/wallpapers/hamid_naderi_yeganeh/cropped/maths_ghost_road_cropped.jpeg", width);
     children:                    [ "inputbar", "dummy", "message" ];
 }
 
