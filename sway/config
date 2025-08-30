@@ -7,7 +7,7 @@ client.background        $base
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:JetBrainsMono Nerd Font 10
+font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -15,18 +15,23 @@ font pango:JetBrainsMono Nerd Font 10
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
-exec --no-startup-id dex --autostart --environment i3
+#exec --no-startup-id dex --autostart --environment i3
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- python3 ~/.config/i3/scripts/blur_lock.py
+#exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+
+exec --no-startup-id /usr/libexec/xdg-desktop-portal-wlr
+exec --no-startup-id /usr/libexec/xdg-desktop-portal
+exec --no-startup-id sleep 2 && waybar --config ~/.config/waybar/config.jsonc --style ~/.config/waybar/style.css
+
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -34,9 +39,6 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-# International qwerty on start (for accents)
-exec --no-startup-id setxkbmap us altgr-intl
 
 # launch flameshot gui on print key
 # <flameshot config>  the command to update flameshot configuration
@@ -54,7 +56,6 @@ floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec kitty
@@ -69,26 +70,25 @@ bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-7/launcher.sh
 # start powermenu
 bindsym $mod+o exec --no-startup-id ~/.config/rofi/powermenu/type-6/powermenu.sh
 
-# change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+#bindsym $mod+Shift+j move left
+#bindsym $mod+Shift+k move down
+#bindsym $mod+Shift+l move up
+#bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
-#bindsym $mod+Shift+Left move left
-#bindsym $mod+Shift+Down move down
-#bindsym $mod+Shift+Up move up
-#bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-#bindsym $mod+Shift+h split h
+#bindsym $mod+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -138,19 +138,19 @@ bindsym $mod+5 workspace --no-auto-back-and-forth number $ws5
 bindsym $mod+6 workspace --no-auto-back-and-forth number $ws6
 bindsym $mod+7 workspace --no-auto-back-and-forth number $ws7
 bindsym $mod+8 workspace --no-auto-back-and-forth number $ws8
-bindsym $mod+9 workspace --no-auto-back-and-forth number $ws9
+bindsym $mod+9 workspace --no-auto-back-and-forth number $ws10
 
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+1 move container to workspace number $ws2
+bindsym $mod+Shift+2 move container to workspace number $ws3
+bindsym $mod+Shift+3 move container to workspace number $ws4
+bindsym $mod+Shift+4 move container to workspace number $ws5
+bindsym $mod+Shift+5 move container to workspace number $ws6
+bindsym $mod+Shift+6 move container to workspace number $ws7
+bindsym $mod+Shift+7 move container to workspace number $ws8
+bindsym $mod+Shift+8 move container to workspace number $ws9
+bindsym $mod+Shift+9 move container to workspace number $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -196,63 +196,53 @@ for_window [class="Nautilus"] floating enable
 for_window [class="Gnome-terminal"] floating enable
 for_window [class="1Password"] floating enable
 for_window [class="nitrogen"] floating enable
-for_window [instance="kitty-floating"] floating enable, resize set 800 600
+for_window [app_id="kitty-floating"] floating enable
+
+for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
 
 # Set wallpaper
-#exec --no-startup-id feh --bg-center ~/.config/wallpapers/space_3.jpg
 exec --no-startup-id nitrogen --restore
 
 # set natural scrolling
 # xinput list
+# exec --no-startup-id xinput set-prop 10 "libinput Natural Scrolling Enabled" 1
+
 # set tap touchpad to click
-exec --no-startup-id ~/.config/i3/scripts/touchpad.sh
-
-# Picom
-exec_always --no-startup-id picom
-
-## Polybar
-# Kill existing Polybar instances (to prevent duplicates)
-exec --no-startup-id pkill polybar
-# Start Polybar automatically on each screen 
-exec --no-startup-id ~/.config/polybar/launch.sh
+exec --no-startup-id xinput set-prop 10 "libinput Tapping Enabled" 1
 
 # include scripts
 exec_always --no-startup-id ~/.config/i3/scripts/dynamic_workspaces.py
 exec_always --no-startup-id ~/.config/i3/scripts/improve_tiling.py
 
-exec --no-startup-id setxkbmap -option compose:ralt
+# set primary Rosé Pine colorscheme colors
+set $base           #191724
+set $surface        #1f1d2e
+set $overlay        #26233a
+set $muted          #6e6a86
+set $subtle         #908caa
+set $text           #e0def4
+set $love           #eb6f92
+set $gold           #f6c177
+set $rose           #ebbcba
+set $pine           #31748f
+set $foam           #9ccfd8
+set $iris           #c4a7e7
+set $highlightlow   #21202e
+set $highlightmed   #403d52
+set $highlighthigh  #524f67
 
-set $rosewater #f4dbd6
-set $flamingo #f0c6c6
-set $pink #f5bde6
-set $mauve #c6a0f6
-set $red #ed8796
-set $maroon #ee99a0
-set $peach #f5a97f
-set $yellow #eed49f
-set $green #a6da95
-set $teal #8bd5ca
-set $sky #91d7e3
-set $sapphire #7dc4e4
-set $blue #8aadf4
-set $lavender #b7bdf8
-set $text #cad3f5
-set $subtext1 #b8c0e0
-set $subtext0 #a5adcb
-set $overlay2 #939ab7
-set $overlay1 #8087a2
-set $overlay0 #6e738d
-set $surface2 #5b6078
-set $surface1 #494d64
-set $surface0 #363a4f
-set $base #24273a
-set $mantle #1e2030
-set $crust #181926
-
+# Teming border and Windows --------------
 # target                 title     bg    text   indicator  border
-client.focused           $lavender $base $text  $rosewater $lavender
-client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
-client.unfocused         $overlay0 $base $text  $rosewater $overlay0
-client.urgent            $peach    $base $peach $overlay0  $peach
-client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
-client.background        $base
+client.focused           $rose     $base $text  $rose      $rose
+client.focused_inactive  $text     $base $text  $subtle    $surface
+client.unfocused         $text     $base $text  $overlay   $overlay
+client.urgent            $text     $base $text  $love      $love
+client.placeholder       $base     $base $text  $overlay   $overlay
+
+input "type:touchpad" {
+    tap enabled
+}
+
+# set wallpaper
+output * bg ~/.config/wallpapers/wallpapers/town_pixelated.jpg fill
+

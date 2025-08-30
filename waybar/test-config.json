@@ -1,0 +1,11 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "modules-left": ["clock"],
+    "modules-center": [],
+    "modules-right": [],
+    "clock": {
+        "format": "{:%H:%M}"
+    }
+} 
